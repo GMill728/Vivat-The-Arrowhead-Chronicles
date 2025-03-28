@@ -277,7 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc0f1eb795083b418b4fc3a6c48ed17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 1034845025}
+  yourButton: {fileID: 269482430}
   sceneName: Level
 --- !u!1 &276832234
 GameObject:
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cc0f1eb795083b418b4fc3a6c48ed17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yourButton: {fileID: 0}
+  yourButton: {fileID: 1034845025}
   sceneName: Credits
 --- !u!1 &1114794046
 GameObject:
