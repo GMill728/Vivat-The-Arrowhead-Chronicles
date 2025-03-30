@@ -13,24 +13,28 @@ MonoBehaviour:
   m_Name: Rebel1Dialogue
   m_EditorClassIdentifier: 
   RootNode:
+    id: R0
+    dialogueText: Hey, you escaped? Help a brother out?
+    responses:
+    - responseText: '*Approach*'
+      nextNodeId: R1
+    - responseText: '*Leave*'
+      nextNodeId: 
+  dialogueNodes:
+  - id: R1
     dialogueText: Ah cheers mate. Us arrowheads need to stick together, yeah?
     responses:
     - responseText: Arrowheads?
-      nextNode:
-        dialogueText: "Don\u2019t give me that, man. Nobody ends up here without
-          being an arrowhead."
-        responses:
-        - responseText: 
-          nextNode:
-            dialogueText: close
-            responses: []
-    - responseText: '*Remain silent* blah blah blah blah blah blah blah blah blah
-        blah blah blah blah '
-      nextNode:
-        dialogueText: "What\u2019s wrong? Don\u2019t tell me you're loyal to the
-          bloody tyrant. Might as well get back in your cell if that\u2019s the case."
-        responses:
-        - responseText: 
-          nextNode:
-            dialogueText: close
-            responses: []
+      nextNodeId: R1ai
+    - responseText: '*Remain silent*'
+      nextNodeId: R1bi
+  - id: R1ai
+    dialogueText: "Don\u2019t give me that, man. Nobody ends up here without being
+      an arrowhead."
+    responses: []
+  - id: R1bi
+    dialogueText: "What\u2019s wrong? Don\u2019t tell me you're loyal to the bloody
+      tyrant. Might as well get back in your cell if that\u2019s the case."
+    responses:
+    - responseText: 
+      nextNodeId: R2b
