@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e052e72a7c7004bbbf8170d8d437b4, type: 3}
+  m_Name: Rebel1Dialogue
+  m_EditorClassIdentifier: 
+  RootNode:
+    dialogueText: Ah cheers mate. Us arrowheads need to stick together, yeah?
+    responses:
+    - responseText: Arrowheads?
+      nextNode:
+        dialogueText: "Don\u2019t give me that, man. Nobody ends up here without
+          being an arrowhead."
+        responses:
+        - responseText: 
+          nextNode:
+            dialogueText: close
+            responses: []
+    - responseText: '*Remain silent* blah blah blah blah blah blah blah blah blah
+        blah blah blah blah '
+      nextNode:
+        dialogueText: "What\u2019s wrong? Don\u2019t tell me you're loyal to the
+          bloody tyrant. Might as well get back in your cell if that\u2019s the case."
+        responses:
+        - responseText: 
+          nextNode:
+            dialogueText: close
+            responses: []
