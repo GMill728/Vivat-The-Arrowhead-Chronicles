@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   yourButton: {fileID: 269482430}
-  sceneName: Level
+  sceneName: IntroAnimation
 --- !u!1 &276832234
 GameObject:
   m_ObjectHideFlags: 0

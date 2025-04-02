@@ -59,12 +59,12 @@ public class Detection : MonoBehaviour
     }
     void PlusAlpha(Image b){
         var tempColor = b.color;
-         tempColor.a = 1;
+         tempColor.a += 0.25f;
          b.color = tempColor;
     }
     void MinusAlpha(Image b){
         var tempColor = b.color;
-         tempColor.a = 0;
+         tempColor.a -= 0.25f;
          b.color = tempColor;
     }
     void addFrame(){
