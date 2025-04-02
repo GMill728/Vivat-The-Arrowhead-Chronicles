@@ -6,36 +6,41 @@ public class debugDetection : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI myObj;
     int dStat = 0;
-    int maxD = 10;
+    int maxD = 24;
     int minD = 0;
-    
+   
     void Start()
     {
           updateDetection();
     }
-
     void Update() 
     {
+
+
         if (Input.GetKeyDown(KeyCode.Equals))
         {
             dStat++;
             updateDetection();
+         
         }
         else if (Input.GetKeyDown(KeyCode.Minus))
         {
             dStat--;
             updateDetection();
+        
         }
         else if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             dStat = 0;
             updateDetection();
+            
         }
 
     }
     void updateDetection() {
         if (dStat > maxD){
             dStat = maxD;
+            //!GAME OVER
         }
         else if (dStat < minD){
             dStat = minD;
