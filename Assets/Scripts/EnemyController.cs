@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [Header("Components")]
     NavMeshAgent agent;
 
+    bool inVisionCone = false;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -19,6 +20,7 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        
         if(agent.remainingDistance <= 0.2f)
         {
             currentWaypoint++;
