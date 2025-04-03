@@ -129,7 +129,6 @@ GameObject:
   m_Component:
   - component: {fileID: 53291433}
   - component: {fileID: 53291432}
-  - component: {fileID: 53291434}
   m_Layer: 0
   m_Name: Rebel1
   m_TagString: Untagged
@@ -166,18 +165,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &53291434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 53291431}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e97e81c1a27f77f4b9309a7a08f8ddab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &499912817
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,7 +508,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 883308642}
-  - component: {fileID: 883308641}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -529,19 +515,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &883308641
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883308640}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f90ea60f46ad8f64ea5a8af8095e2185, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetScript: {fileID: 1321285393}
 --- !u!4 &883308642
 Transform:
   m_ObjectHideFlags: 0
@@ -1110,7 +1083,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1503770152}
-  - component: {fileID: 1503770151}
   m_Layer: 0
   m_Name: Rebel2
   m_TagString: Untagged
@@ -1118,20 +1090,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1503770151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1503770150}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fadd0164dd6856344a2fcdf62b6d07cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ActorName: Rebel2
-  Dialogue: {fileID: 11400000, guid: e7e2e47b6adad69479e8a38ce1d3d3ae, type: 2}
 --- !u!4 &1503770152
 Transform:
   m_ObjectHideFlags: 0
