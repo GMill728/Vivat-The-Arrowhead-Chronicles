@@ -35,17 +35,25 @@ public class Detection : MonoBehaviour
     }
     void Update() 
     {
+        int dTemp = dStat;
+        
         if (Input.GetKeyDown(KeyCode.Equals))//check if plus was pressed (equals key)
         {
             dStat++; //add one to detection status
             updateDetection();//run update detection script
-            addFrame();//add one to the detection UI frames
+            if (dTemp !=dStat)
+            {
+                addFrame();//add one to the detection UI frames
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Minus))
         {
             dStat--;//minus one to detection status
             updateDetection();//run update detection script
-            subtractFrame();//minus one to the detection UI frames
+            if (dTemp !=dStat)
+            {
+                subtractFrame();//minus one to the detection UI frames
+            }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
         {
