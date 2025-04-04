@@ -1,3 +1,11 @@
+/*
+This script handles all detection related variables and the detection UI
+when other scripts increase, decrease, or otherwise change detection, they simply
+need to interface with the dStat variable (detection status.)  This script will handle
+that and process propper UI and game loss conditions accordnigly.
+Written by: Gavv
+On: 4/1/25
+*/
 using UnityEngine;
 using TMPro;
 using System.Collections;
