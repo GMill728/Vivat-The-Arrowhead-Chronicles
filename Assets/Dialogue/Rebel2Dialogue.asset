@@ -12,13 +12,52 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e052e72a7c7004bbbf8170d8d437b4, type: 3}
   m_Name: Rebel2Dialogue
   m_EditorClassIdentifier: 
-  RootNode:
-    id: R2a
-    dialogueText: victory
+  dialogueNodes:
+  - id: 1
+    dialogueText: 'Shut up, stupid. Plenty of commoners wind up here just because
+      those Dominus Nihili like to keep their tight grip on the streets of Vivat. '
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
     responses:
     - responseText: Dominus Nihili?
-      nextNodeId: 
-  dialogueNodes:
-  - id: R2b
-    dialogueText: victory
+      responseId: 3
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 2
+    dialogueText: "Oh hush, would ya? At least he won\u2019t draw a guard's attention
+      with needless babble. And does he look like Dominus Nihili to you? He wouldn\u2019t
+      be down here if he were loyal to his gold-covered ass. "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Dominus Nihili?
+      responseId: 3
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 3
+    dialogueText: "Aye, the Lords of Nothingness, Rex Atticus\u2019 favorite nobles
+      to keep close. Dirty bastards are the ones taking all the fruits of our labor
+      and give us nothing in return. But nevermind that. You have to go. Get yourself
+      and only yourself out. Taking anybody else will draw too much attention. We\u2019ll
+      take care of ourselves. Us arrowheads have endured the harsh conditions of
+      working in this godforsaken kingdom, we can endure doing nothing in this dungeon
+      for a bit longer. For a free Vivat. "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 4
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 4
+    dialogueText: For a free Vivat.
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
     responses: []

@@ -1,0 +1,267 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e052e72a7c7004bbbf8170d8d437b4, type: 3}
+  m_Name: RiserNineDialogue
+  m_EditorClassIdentifier: 
+  dialogueNodes:
+  - id: 1a
+    dialogueText: You there! Easy, easy. Keep it quiet, yeah?
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 1b
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 1b
+    dialogueText: You an arrowhead?
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: '[Remain silent]'
+      responseId: 2
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: Yes
+      responseId: 3
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: No
+      responseId: 6
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: What's an arrowhead?
+      responseId: 5
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 2
+    dialogueText: "No need to be stubborn now. I\u2019m an arrowhead myself. You
+      can trust me. Here, see? [Riser Nine presents his arrowhead.] "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 1b
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 3
+    dialogueText: 
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Why are you helping me?
+      responseId: 4
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: Why are you an Arrowhead?
+      responseId: 5
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 4
+    dialogueText: 
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: His head?
+      responseId: 11
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 5
+    dialogueText: "After seeing what they did to him? Didn\u2019t feel like I had
+      a choice?"
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Him?
+      responseId: 11
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 6
+    dialogueText: "Hmmm\u2026 But you're escaping? I guess anybody would want to
+      escape from here no matter the reason they are here in the first place. Don\u2019t
+      worry. I won\u2019t rat you out if you don\u2019t rat me out."
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Rat you out for what?
+      responseId: 7
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: '[Nod and walk away]'
+      responseId: 8
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 7
+    dialogueText: For letting you go of course.
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: '[Nod and walk away]'
+      responseId: 8
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 8
+    dialogueText: 
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 10
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 9
+    dialogueText: "No need to act stupid. It won\u2019t do you any favors. We all
+      know the arrowheads are the rebel group attacking this kingdom. So I ask again,
+      are you one?"
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: '[Remain Silent]'
+      responseId: 2
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: Yes
+      responseId: 3
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: No
+      responseId: 6
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: What's an arrowhead?
+      responseId: 9
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 10
+    dialogueText: "Wait a minute. I\u2019m not just gonna send you out there with
+      nothing."
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Why are you helping me?
+      responseId: 4
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 11
+    dialogueText: "Hmmm\u2026 months ago now, before the war started, there were
+      whispers throughout the kingdom of one man who wanted to rally the people against
+      the Dominus Nihili. No one\u2019s sure who he was. But, he gathered enough
+      people for a small army at the central fountain in the 7th district. He spoke
+      to them. He spoke of freedom, of fighting back against Nihili, those nobles
+      who do nothing but splunder the spoils of this land. The crowd became increasingly
+      more untamed as he spoke. A spark was lit. And to extinguish it, a single arrow
+      was put through the skull of that man. It might have smoldered the flame for
+      a bit, but it was not long before it was ablaze. "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: Why are you here?
+      responseId: 12
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 12
+    dialogueText: 
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: A favor?
+      responseId: 13
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 13
+    dialogueText: '13)Yes. I know you are not one of us, not yet at least, but I
+      could help find your way out if you deliver a message for me. '
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: No way.
+      responseId: 14
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: What's the message?
+      responseId: 15
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 14
+    dialogueText: I understand. We must all look after our own best interests first
+      these days, huh? I wish you luck then. Continue heading east if you can.
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses: []
+  - id: 15
+    dialogueText: 
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses: []
+  - id: 16
+    dialogueText: "You\u2019re still here? Lost or did you decide you want to take
+      my message after all?"
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: No way.
+      responseId: 14
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: What's the message?
+      responseId: 15
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 17
+    dialogueText: "Lost? Head towards the easternmost wall. There\u2019s a broken
+      window you can escape from. Please, don\u2019t forget about my message."
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses: []
