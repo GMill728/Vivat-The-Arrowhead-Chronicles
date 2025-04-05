@@ -1,3 +1,8 @@
+/*
+This script makes the quit button quit game and close program
+Written by: Gavv
+On: 3/26/25
+*/
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
