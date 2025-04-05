@@ -7,22 +7,21 @@ using UnityEngine;
  
 public class NpcDialogueActor : MonoBehaviour        //L - Character in scene that you're talking to
 {
+    //L - Name used for referencing correct GameObject Dialogue
     public string ActorName;
+
+    //L - required dialogue script to be attached to GameObject
+    //      (see Dialogue.cs for better breakdown)
     public Dialogue Dialogue;
 
-
-    //L - used for testing
-    private void Update()
+    /// <summary>
+    /// Trigger dialogue for this actor | L - NOT TYPICALLY USED. SpeakToNewActor() within DialogueManager has wider use.
+    /// </summary>
+    /// <param name="ActorName">This actor's name</param>
+    /// <param name="node">A node within the list of nodes in current dialogue.</param>
+    public void SpeakTo(string ActorName, DialogueNode node)
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            SpeakTo();
-        }
-    }
-
-    // Trigger dialogue for this actor
-    public void SpeakTo()
-    {
-            DialogueManager.Instance.StartDialogue(ActorName, Dialogue.RootNode);
-    }
-}
+        //requiring already having the node restricts how much this can be used. Likely redundant.
+        DialogueManager.Instance.StartDialogue(ActorName, node);
+    }//END SpeakTo
+}//END class NpcDialogueActor

@@ -12,29 +12,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5e052e72a7c7004bbbf8170d8d437b4, type: 3}
   m_Name: Rebel1Dialogue
   m_EditorClassIdentifier: 
-  RootNode:
-    id: R0
-    dialogueText: Hey, you escaped? Help a brother out?
-    responses:
-    - responseText: '*Approach*'
-      nextNodeId: R1
-    - responseText: '*Leave*'
-      nextNodeId: 
   dialogueNodes:
-  - id: R1
+  - id: 1
+    dialogueText: Hey, you escaped? Help a brother out?
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: '[Approach]'
+      responseId: 2
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: '[Leave]'
+      responseId: 
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 2
     dialogueText: Ah cheers mate. Us arrowheads need to stick together, yeah?
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
     responses:
     - responseText: Arrowheads?
-      nextNodeId: R1ai
-    - responseText: '*Remain silent*'
-      nextNodeId: R1bi
-  - id: R1ai
+      responseId: 3
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+    - responseText: '[Remain Silent]'
+      responseId: 4
+      hasNewActorLink: 0
+      linkActor: 
+      linkNodeId: 
+  - id: 3
     dialogueText: "Don\u2019t give me that, man. Nobody ends up here without being
       an arrowhead."
+    hasNewActorLink: 1
+    linkActor: Rebel2
+    linkNodeId: 1
     responses: []
-  - id: R1bi
+  - id: 4
     dialogueText: "What\u2019s wrong? Don\u2019t tell me you're loyal to the bloody
-      tyrant. Might as well get back in your cell if that\u2019s the case."
-    responses:
-    - responseText: 
-      nextNodeId: R2b
+      tyrant. Might as well get back in your cell if that\u2019s the case. "
+    hasNewActorLink: 1
+    linkActor: Rebel2
+    linkNodeId: 2
+    responses: []

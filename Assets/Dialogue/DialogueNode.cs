@@ -11,41 +11,24 @@ using static UnityEngine.Debug;
 public class DialogueNode
 {
     //Unique identifier for the dialogue node
-    public string id;
-    public string dialogueText;
-    public List<DialogueResponse> responses;
+    public string id;               //L - used to find node
+    public string dialogueText;     //L - stores node text to input into UI container
+
+    public bool hasNewActorLink;    //L - If checked in inspector, other function use linkActor and linkNodeId
+    public string linkActor;        //L - Within inspector, the input should equate to other GameObject's tag & actorName
+    public string linkNodeId;       //L - Within inspector, the input should equate to other DialogueNode's id
+
+    public List<DialogueResponse> responses;    //L - list of every response within node
 
     // Optional reference to the dialogue this node belongs to
     // public Dialogue dialogue
 
-    
-    internal bool IsLastNode()
+    /// <summary>
+    /// L - Checks if node contains any responses
+    /// </summary>
+    /// <returns>bool</returns>
+    internal bool hasResponses()
     {
-        //L - attempted: return dialogueText == "close";
-        // successful, but changing it to attempt other methods
-        return responses.Count <= 0;
-    }
-
-
-    // L - I made this function to account for nodes with no response.
-    // It doesn't work.... Earlier I successfully accomplished it using dialogue
-    // as the trigger instead. Comments showing the code are in IsLastNode()
-    // This function doesn't seem as relevant now that the node tree in the dialogue
-    // performs better(not having responses for a next part simply ends the tree). Unfortunately,
-    // I still need to make it so there are no options, but still dialogue you can pass with
-    // hitting spacebar similar to the key input in the Actor.cs script.
-    internal bool IsStmtNode()
-    {
-        foreach (DialogueResponse response in responses)
-        {
-            if (response.responseText == "")
-            {
-                Log("response empty/true");
-                return true;
-            }
-            
-        }
-        Log("response full/false");
-        return false;
-    }
-}
+        return responses.Count > 0;     //L - see function summary
+    }//END hasResponses()
+}//END class DialogueNode

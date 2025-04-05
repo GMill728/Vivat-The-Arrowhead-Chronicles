@@ -6,14 +6,16 @@
 using System.Collections.Generic;
 using UnityEngine;
  
+ // L - creates a new asset when right-clicking     create > dialogue > dialogue asset
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue/Dialogue Asset")]
 
-// [System.Serializable] L - wasn't in troubleshooting steps
+// [System.Serializable] L - removed to fix loop warning.
 public class Dialogue : ScriptableObject
 {
     //First node of the conversation
-    public DialogueNode RootNode;
+    // public DialogueNode RootNode;    L - thought about switching to string for a search function but seems unecessary for now. 
+    //                                  will likely include/change when determining and changing dialogue upon approach to npc/actor.
 
     //List of all dialogue nodes
     public List<DialogueNode> dialogueNodes; 
-}
+}//END class Dialogue
