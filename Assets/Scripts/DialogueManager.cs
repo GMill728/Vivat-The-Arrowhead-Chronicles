@@ -69,7 +69,7 @@ public class DialogueManager : MonoBehaviour
             linkable = false;
             //L - Change actor dialogue to most updated actor and node id (BOTH ARE STRINGS)
             SpeakToNewActor(linkActorVar, linkNodeIdVar);
-            Debug.Log($" DialogueActive? {IsDialogueActive()}");
+            //Debug.Log($" DialogueActive? {IsDialogueActive()}");
         }
         else if (Input.GetKeyDown(KeyCode.Space) && skippable != false)
         {
@@ -79,7 +79,7 @@ public class DialogueManager : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Space) && (skippable == false && linkable == false))
         {
-            Debug.Log("Space and null");
+            //Debug.Log("Space and null");
         }//END IF
 
 
@@ -88,7 +88,7 @@ public class DialogueManager : MonoBehaviour
         {
             linkActorVar = "Rebel1";
             linkNodeIdVar = "R1";
-            this.SpeakToNewActor("Rebel1", "R1");
+            this.SpeakToNewActor("Rebel1", "1");
         }//END IF
     }//END  Update()
  
@@ -137,7 +137,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("Start Dial: No Nodes applied");
+            //Debug.Log("Start Dial: No Nodes applied");
             //HideDialogue();   //L - leaving this here for possible testing in the future
         }//END IF
     }//END StartDialogue()
@@ -191,7 +191,7 @@ public class DialogueManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("No Nodes applied");
+            //Debug.Log($"UpdateDialogue: No Nodes applied");
         }//END IF
     }//END UpdateDialogue()
 
@@ -209,7 +209,7 @@ public class DialogueManager : MonoBehaviour
         string actorName = DialogueTitleText.text;  // Preserve the actor's name from the title
 
         // Log for debugging
-        Debug.Log($"SelectResponse - Actor: {actorName}, Next Dialogue Text: {nextResponse.dialogueText}");
+        //Debug.Log($"SelectResponse - Actor: {actorName}, Next Dialogue Text: {nextResponse.dialogueText}");
 
         // Update the dialogue using the same actor name, but with the new dialogue text for the next node
         UpdateDialogue(actorName, nextResponse);  // Pass actor name + updated dialogue text
@@ -251,6 +251,10 @@ public class DialogueManager : MonoBehaviour
     /// <returns>DialogueNode</returns>
      private DialogueNode GetDialogueNodeById(string id)
     {
+        if (currentDialogue == null)
+        {
+            //Debug.Log($"currentDialogue is null");
+        }
         // Assuming all nodes are stored in the current dialogue
         return currentDialogue.dialogueNodes.FirstOrDefault(node => node.id == id);
     }//END GetDialogueNodeById()
