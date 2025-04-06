@@ -1,3 +1,10 @@
+/*
+Script handles all dialogue manipulation between possible various actors and their dialogue nodes.
+Written by: Luke
+On: 3/28/25
+Last Modified: 4/6/25
+*/
+
 // Created by Luke using source code from Youtube 
 // channel Dul at https://www.youtube.com/watch?v=dcPIuTS_usM
 // and easily accessible code from https://pastebin.com/DgyxWJ5T
@@ -84,12 +91,12 @@ public class DialogueManager : MonoBehaviour
 
 
         //L - HERE FOR TESTING. THIS IS HOW FUNCTION WILL BE CALLED BY PLAYER (Replace "this." to appropriate instance)
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            linkActorVar = "Rebel1";
-            linkNodeIdVar = "R1";
-            this.SpeakToNewActor("Rebel1", "1");
-        }//END IF
+        // if (Input.GetKeyDown(KeyCode.Return))
+        // {
+        //     linkActorVar = "Rebel1";
+        //     linkNodeIdVar = "R1";
+        //     this.SpeakToNewActor("Rebel1", "1");
+        // }//END IF
     }//END  Update()
  
 
@@ -103,6 +110,11 @@ public class DialogueManager : MonoBehaviour
     {
         // Display the dialogue UI
         ShowDialogue();
+
+        //L - Free cursor and lock player & camera
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = true;
 
         // Set dialogue title and body text
         DialogueTitleText.text = actorName;
@@ -162,9 +174,16 @@ public class DialogueManager : MonoBehaviour
         // Create new response buttons for the current node's responses
         foreach (DialogueResponse response in node.responses)
         {
-            GameObject buttonObj = Instantiate(responseButtonPrefab, responseButtonContainer);      //L - Create button objects using prefab
-            buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;       //L - Change created button's text
-            buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));   //L - Wait for player's click on button
+            if (response.responseText != "" && response.responseText != null)
+            {
+                GameObject buttonObj = Instantiate(responseButtonPrefab, responseButtonContainer);      //L - Create button objects using prefab
+                buttonObj.GetComponentInChildren<TextMeshProUGUI>().text = response.responseText;       //L - Change created button's text
+                buttonObj.GetComponent<Button>().onClick.AddListener(() => SelectResponse(response));   //L - Wait for player's click on button
+            }
+            else //linkable else if statement unnecessary since UpdateDialogue is never passed to a node with link and responses
+            {
+                skippable = true;
+            }
         }//END FOREACH
 
         //L - THE FOLLOWING IF STATEMENTS ARE ALMOST ENTIRELY REDUNDANT DUE TO THEM BEING SIMILAR TO StartDialogue()'s IF STATEMENTS.
@@ -199,20 +218,28 @@ public class DialogueManager : MonoBehaviour
     /// <summary>
     /// Handles response selection and triggers next dialogue node
     /// </summary>
-    /// <param name="response"></param>
+    /// <param name="response">DialogueResponse</param>
     public void SelectResponse(DialogueResponse response)
     {
-        // Retrieve the next dialogue node by the ID
-        DialogueNode nextResponse = GetDialogueNodeById(response.responseId);
+        //Ensure response isn't a dead end like "Leave"
+        if (response.hasNewActorLink == false && response.responseId != null && response.responseId != "")
+        {
+            // Retrieve the next dialogue node by the ID
+            DialogueNode nextResponse = GetDialogueNodeById(response.responseId);
 
-        // Use the correct actor's name (do not overwrite it with dialogue text)
-        string actorName = DialogueTitleText.text;  // Preserve the actor's name from the title
+            // Use the correct actor's name (do not overwrite it with dialogue text)
+            string actorName = DialogueTitleText.text;  // Preserve the actor's name from the title
 
-        // Log for debugging
-        //Debug.Log($"SelectResponse - Actor: {actorName}, Next Dialogue Text: {nextResponse.dialogueText}");
+            // Log for debugging
+            //Debug.Log($"SelectResponse - Actor: {actorName}, Next Dialogue Text: {nextResponse.dialogueText}");
 
-        // Update the dialogue using the same actor name, but with the new dialogue text for the next node
-        UpdateDialogue(actorName, nextResponse);  // Pass actor name + updated dialogue text
+            // Update the dialogue using the same actor name, but with the new dialogue text for the next node
+            UpdateDialogue(actorName, nextResponse);  // Pass actor name + updated dialogue text
+        }
+        else
+        {
+            HideDialogue();
+        }
     }//END SelectResponse()
 
 
@@ -224,6 +251,12 @@ public class DialogueManager : MonoBehaviour
     {
         //L - Main container to dialogue deactivated. To view initial value see DialogueManager in inspector
         DialogueParent.SetActive(false);
+
+
+        //L - Re-lock cursor & camera after dialogue disappears
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = false;
     }//END HideDialogue()
  
     /// <summary>
@@ -294,7 +327,7 @@ public class DialogueManager : MonoBehaviour
     public void changeCurrentActor(string tag)
     {
         //L - see function summary
-        npcActor = GameObject.Find(tag).GetComponent<NpcDialogueActor>();
+        npcActor = GameObject.FindWithTag(tag).GetComponent<NpcDialogueActor>();
     }//END changeCurrentActor()
 
     /// <summary>

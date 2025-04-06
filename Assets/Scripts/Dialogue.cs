@@ -1,3 +1,11 @@
+/*
+Script handles assigning and storing information for the various nodes of dialogue that
+are later used to fill dialogueUI. See Assets>Dialogue>Dialogue.asset
+Written by: Luke
+On: 3/28/25
+Last Modified: 4/6/25
+*/
+
 // Created by Luke using source code from Youtube 
 // channel Dul at https://www.youtube.com/watch?v=dcPIuTS_usM
 // and easily accessible code from https://pastebin.com/DgyxWJ5T
