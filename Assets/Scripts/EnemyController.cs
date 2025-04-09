@@ -5,6 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyController : MonoBehaviour
 {
+
+    FieldOfView fieldOfView;
+    [SerializeField] GameObject fieldOfViewScript;
+
+    void Awake()
+    {
+        fieldOfView = fieldOfViewScript.GetComponent<FieldOfView>();
+    }
+
     [Header("Patrol")]
     [SerializeField] private Transform wayPoints;
     private int currentWaypoint = 0;
@@ -12,7 +21,6 @@ public class EnemyController : MonoBehaviour
     [Header("Components")]
     NavMeshAgent agent;
 
-    bool inVisionCone = false;
     private void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -22,15 +30,17 @@ public class EnemyController : MonoBehaviour
     private void Update()
     {
         
-        if(agent.remainingDistance <= 0.2f) //If we get to a new waypoint, run below
-        {
-            currentWaypoint++; //Update to reflect moving to new waypoint
-            if(currentWaypoint >= wayPoints.childCount) //If we have traveled back to all waypoints, reset currentWaypoint to 0
+        if(fieldOfView.playerinFOV == false){
+            if(agent.remainingDistance <= 0.2f) //If we get to a new waypoint, run below
             {
-                currentWaypoint = 0;
-            }
+                currentWaypoint++; //Update to reflect moving to new waypoint
+                if(currentWaypoint >= wayPoints.childCount) //If we have traveled back to all waypoints, reset currentWaypoint to 0
+                {
+                    currentWaypoint = 0;
+                }
 
-            agent.SetDestination(wayPoints.GetChild(currentWaypoint).position); //Set destination to next waypoint
+                agent.SetDestination(wayPoints.GetChild(currentWaypoint).position); //Set destination to next waypoint
+            }
         }
     }
 }

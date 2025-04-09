@@ -8,14 +8,15 @@ TagManager:
   - Friendly
   - Rebel1
   - Rebel2
+  - player
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Obstruction
   - Water
   - UI
-  - 
+  - Target
   - 
   - 
   - 
