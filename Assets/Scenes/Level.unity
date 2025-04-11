@@ -459,6 +459,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 860922206}
     m_Modifications:
+    - target: {fileID: 4890580672838011191, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4890580672838011191, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243178634543501411, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -33
+      objectReference: {fileID: 0}
+    - target: {fileID: 5243178634543501411, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -28.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6816063702266761907, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2108,7 +2124,7 @@ Transform:
   m_GameObject: {fileID: 1327811189}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.3, y: 0.5, z: -9.72}
+  m_LocalPosition: {x: 3.38, y: 0.5, z: -12.133}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3006,9 +3022,10 @@ GameObject:
   - component: {fileID: 2086880135}
   - component: {fileID: 2086880134}
   - component: {fileID: 2086880133}
+  - component: {fileID: 2086880138}
   m_Layer: 0
-  m_Name: Friendly
-  m_TagString: Friendly
+  m_Name: RiserNine
+  m_TagString: RiserNine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3129,6 +3146,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2086880138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086880132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fadd0164dd6856344a2fcdf62b6d07cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ActorName: RiserNine
+  Dialogue: {fileID: 11400000, guid: 5b38147b73491304788642e55b621b5e, type: 2}
+  interactDialogueNum: 1a
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

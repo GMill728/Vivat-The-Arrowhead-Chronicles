@@ -22,7 +22,7 @@ MonoBehaviour:
     - responseText: 
       responseId: 1b
       hasNewActorLink: 0
-      linkActor: 
+      linkActor: RiserNine
       linkNodeId: 
   - id: 1b
     dialogueText: You an arrowhead?
@@ -60,10 +60,14 @@ MonoBehaviour:
     - responseText: 
       responseId: 1b
       hasNewActorLink: 0
-      linkActor: 
+      linkActor: RiserNine
       linkNodeId: 
   - id: 3
-    dialogueText: 
+    dialogueText: "Really? You have your arrowhead to prove it? \u2026 Ha. Don\u2019t
+      worry. I don\u2019t expect they\u2019d let you keep it on you if you had one
+      when you were arrested. But here, [pulls out arrow head] you can see that I
+      am an arrowhead myself. I know you lied, but don\u2019t worry, my help extends
+      to any commoner who needs it."
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -79,7 +83,8 @@ MonoBehaviour:
       linkActor: 
       linkNodeId: 
   - id: 4
-    dialogueText: 
+    dialogueText: "Why wouldn\u2019t I? Ever since those bastards put an arrow through
+      his head, we have been fighting for the freedom of all commoners."
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -131,7 +136,7 @@ MonoBehaviour:
       linkActor: 
       linkNodeId: 
   - id: 8
-    dialogueText: 
+    dialogueText: '[Riser Nine stops you]'
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -139,7 +144,7 @@ MonoBehaviour:
     - responseText: 
       responseId: 10
       hasNewActorLink: 0
-      linkActor: 
+      linkActor: RiserNine
       linkNodeId: 
   - id: 9
     dialogueText: "No need to act stupid. It won\u2019t do you any favors. We all
@@ -201,7 +206,17 @@ MonoBehaviour:
       linkActor: 
       linkNodeId: 
   - id: 12
-    dialogueText: 
+    dialogueText: "We all have our roles to play. After the assassination of our
+      first spark, a few of us had tried to topple some of the citadels with raids.
+      They were unsuccessful at first, until we had one of the guards inside one
+      of the citadels join our side. He knew the patrols routes, number of guards,
+      and the most opportune time to go. It was our first successful raid. We worked
+      to get more of our men in the guards\u2019 ranks so we could better find the
+      weakest points to strike. There are more like me scattered at different stations
+      throughout the kingdom. This is my assignment; to learn the layout and patrol
+      routes throughout this dungeon to find the best way to break my fellow arrowheads
+      out. But I have not yet figured out the best way to conduct a mass escape.
+      Perhaps you could do me a favor?"
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
