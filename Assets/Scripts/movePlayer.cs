@@ -1,30 +1,35 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 
 public class playerMovement : MonoBehaviour
 {
-    public float moveSpeed;
+
+    Rigidbody rb;
+    float speed = 5f;
+    Vector3 direction;
     public Transform orientation;
 
-    float horizontalInput;
-    float verticalInput;
-
-    Vector3 direction;
-    private void MyInput()
+    void Start()
     {
-        //checks for horizontal and vertical inputs
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
     }
+
     void Update()
     {
-        MyInput(); //checks inputs every update
-        MovePlayer(); //moves the player every update
+        MyInput();
     }
-
-    private void MovePlayer()
+    void MyInput()
     {
-        direction = orientation.forward * verticalInput + orientation.right * horizontalInput; //updates the direction vector to account for inputs and current orientation
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
+        direction = orientation.forward * vertical + orientation.right * horizontal;
 
-        transform.Translate(direction * moveSpeed * Time.deltaTime); //moves the player in the direction vector at a rate of moveSpeed per frame
+    }
+    private void FixedUpdate()
+    {
+        Debug.Log(direction.normalized * speed);
+        rb.linearVelocity = direction.normalized * speed;
     }
 }

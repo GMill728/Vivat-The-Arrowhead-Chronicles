@@ -44,7 +44,6 @@ public class EnemyController : MonoBehaviour
             }
         } else 
         {
-            Debug.Log("Player detected! Stopping movement.");
             agent.isStopped = true;
         }
     }

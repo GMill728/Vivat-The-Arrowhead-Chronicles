@@ -2256,7 +2256,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cb82a24d1948474dac7943928c17d2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
   orientation: {fileID: 1187782239}
 --- !u!1 &1398163432
 GameObject:
