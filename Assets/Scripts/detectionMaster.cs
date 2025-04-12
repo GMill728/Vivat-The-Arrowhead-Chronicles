@@ -34,6 +34,7 @@ public class Detection : MonoBehaviour
     AudioManager audioManager;
 
     private void Awake() {
+        //accesses the audio manager
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -76,6 +77,7 @@ public class Detection : MonoBehaviour
             dStat = maxD;//set status to max
             Game_Over = true;//set global game over bool to true
             
+            //if the player gets caught, plays the death audio and prevents it from looping
             if (!hasPlayedAudio) {
                 audioManager.PlaySFX(audioManager.death);
                 hasPlayedAudio = true;

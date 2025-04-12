@@ -8,7 +8,7 @@ public class EnemyController : MonoBehaviour
 
     FieldOfView fieldOfView;
     [SerializeField] GameObject fieldOfViewScript;
-    [SerializeField] AudioSource SFX;
+    [SerializeField] AudioSource SFX; //custom audio output (needed for each enemy)
 
     void Awake()
     {
@@ -49,6 +49,7 @@ public class EnemyController : MonoBehaviour
             agent.isStopped = true;
         }
 
+        //mutes the footstep audio if the enemy is not moving
         if (agent.isStopped) {
             SFX.mute = true;
         }

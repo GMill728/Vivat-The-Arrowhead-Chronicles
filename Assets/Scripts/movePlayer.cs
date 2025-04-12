@@ -16,6 +16,7 @@ public class playerMovement : MonoBehaviour
 
     private void Awake()
     {
+        //accesses the audio manager
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
@@ -32,6 +33,7 @@ public class playerMovement : MonoBehaviour
 
         footstepTimer--;
 
+        //if the timer reaches 0 and the player is moving, play the footstep audio
         if (footstepTimer == 0) {
             if (direction.magnitude > 0) {
                 audioManager.PlaySFX(audioManager.footsteps, 0.25f);
