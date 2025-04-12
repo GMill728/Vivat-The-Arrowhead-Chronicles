@@ -28,7 +28,15 @@ public class Detection : MonoBehaviour
     int dStat = 0;//this is the initial value of detection status
     int maxD = 24;//max detection status
     int minD = 0;//minimum detection status
-   
+
+    bool hasPlayedAudio = false;
+
+    AudioManager audioManager;
+
+    private void Awake() {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
           updateDetection();//on start check detection once (used for function declaration)
@@ -67,6 +75,11 @@ public class Detection : MonoBehaviour
         if (dStat > maxD){//if the status is greater than max, 
             dStat = maxD;//set status to max
             Game_Over = true;//set global game over bool to true
+            
+            if (!hasPlayedAudio) {
+                audioManager.PlaySFX(audioManager.death);
+                hasPlayedAudio = true;
+            }
         }
         else if (dStat < minD){//if status is less than 0, set it to 0
             dStat = minD;

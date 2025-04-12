@@ -9,6 +9,7 @@ TagManager:
   - Rebel1
   - Rebel2
   - player
+  - Audio
   layers:
   - Default
   - TransparentFX

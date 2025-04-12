@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
 
     FieldOfView fieldOfView;
     [SerializeField] GameObject fieldOfViewScript;
+    [SerializeField] AudioSource SFX;
 
     void Awake()
     {
@@ -46,6 +47,13 @@ public class EnemyController : MonoBehaviour
         {
             Debug.Log("Player detected! Stopping movement.");
             agent.isStopped = true;
+        }
+
+        if (agent.isStopped) {
+            SFX.mute = true;
+        }
+        else {
+            SFX.mute = false;
         }
     }
 }
