@@ -15,6 +15,8 @@ public class keySceneChange : MonoBehaviour {
     {
 		if(Input.GetKeyDown(KeyCode.RightControl)){//if RightControl Pressed
 			SceneManager.LoadScene(sceneName);//call SceneManager and load the input scenename
+      Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 		}
     }
 

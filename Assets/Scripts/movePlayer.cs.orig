@@ -11,8 +11,11 @@ public class playerMovement : MonoBehaviour
     Vector3 direction;
     public Transform orientation;
 
+<<<<<<< HEAD
     float horizontalInput;
     float verticalInput;
+
+    Vector3 direction;
 
     int footstepTimer = 60;
 
@@ -25,18 +28,19 @@ public class playerMovement : MonoBehaviour
     }
 
     private void MyInput()
+=======
+    void Start()
+>>>>>>> Audio
     {
-        //checks for horizontal and vertical inputs
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        rb = GetComponent<Rigidbody>();
     }
-    void Start(){
- 	rb = GetComponent<Rigidbody>();
-	}
+
     void Update()
     {
+<<<<<<< HEAD
         MyInput(); //checks inputs every update
-        FixedUpdate(); //moves the player every update
+        MovePlayer(); //moves the player every update
+
         footstepTimer--;
 
         //if the timer reaches 0 and the player is moving, play the footstep audio
@@ -44,20 +48,23 @@ public class playerMovement : MonoBehaviour
             if (direction.magnitude > 0) {
                 audioManager.PlaySFX(audioManager.footsteps, 0.25f);
             }
+
+            footstepTimer = 60;
         }
+=======
+        MyInput();
+>>>>>>> Audio
+    }
     void MyInput()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         direction = orientation.forward * vertical + orientation.right * horizontal;
 
-        footstepTimer = 60;    
-        }
     }
     private void FixedUpdate()
     {
         Debug.Log(direction.normalized * speed);
         rb.linearVelocity = direction.normalized * speed;
     }
- }
-
+}

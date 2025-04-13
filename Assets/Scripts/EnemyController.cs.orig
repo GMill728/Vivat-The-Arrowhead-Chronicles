@@ -45,7 +45,10 @@ public class EnemyController : MonoBehaviour
             }
         } else 
         {
-            Debug.Log("Player detected! Stopping movement.");
+<<<<<<< HEAD
+            //Debug.Log("Player detected! Stopping movement.");
+=======
+>>>>>>> Audio
             agent.isStopped = true;
 
             //Added by Luke - trigger guard dialogue when player is caught
