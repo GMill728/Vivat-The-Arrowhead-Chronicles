@@ -25,6 +25,7 @@ public class Detection : MonoBehaviour
         fieldOfView = enemyObject.GetComponent<FieldOfView>();
     }
 
+
     public static bool Game_Over = false;
     //below are where to put detection images
     public Image image_0;
@@ -44,73 +45,9 @@ public class Detection : MonoBehaviour
 
     AudioManager audioManager;
 
-    private void Awake() {
+    private void pAwake() {
         //accesses the audio manager
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
-
-    void Start()
-    {
-          updateDetection();//on start check detection once (used for function declaration)
-    }
-    void Update() 
-    {
-        int dTemp = dStat;
-        
-        if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
-        {
-            dStat = 0;//zero out detection status
-            updateDetection();//update detection
-            zeroFrame();//zero out UI frame
-        }
-
-        if(fieldOfView.playerinFOV) 
-        {
-            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
-            Debug.Log(timer);
-            if(timer < 0)
-            {
-                dStat++; //add one to detection status
-                timer = 0.1f; //reset timer
-            }
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                addFrame();//add one to the detection UI frames
-            }
-        } else if(fieldOfView.playerinFOV == false)
-        {
-            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
-            if(timer < 0)
-            {
-                dStat--;//minus one to detection status
-                timer = 0.1f; //reset timer
-            }
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                subtractFrame();//minus one to the detection UI frames
-            }
-        }
-    }
-    void updateDetection() {//update detection function
-        if (dStat > maxD){//if the status is greater than max, 
-            dStat = maxD;//set status to max
-            Game_Over = true;//set global game over bool to true
-            
-            //if the player gets caught, plays the death audio and prevents it from looping
-            if (!hasPlayedAudio) {
-                audioManager.PlaySFX(audioManager.death);
-                hasPlayedAudio = true;
-
-            else if (Game_Over)
-            {
-                Application.Quit();
-            }
-        }
-        else if (dStat < minD){//if status is less than 0, set it to 0
-            dStat = minD;
-        }
     }
     void PlusAlpha(Image b){//function to add alpha (transparency to input image)
         var tempColor = b.color;//creates a temp var of all color channels (you can't just edit em directly)
@@ -179,5 +116,73 @@ public class Detection : MonoBehaviour
         ZeroAlpha(image_3);
         ZeroAlpha(image_4);
         ZeroAlpha(image_5);
+        }
+
+    void Start()
+    {
+          updateDetection();//on start check detection once (used for function declaration)
     }
+    void Update() 
+    {
+        int dTemp = dStat;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
+        {
+            dStat = 0;//zero out detection status
+            updateDetection();//update detection
+            zeroFrame();//zero out UI frame
+        }
+
+        if(fieldOfView.playerinFOV) 
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            Debug.Log(timer);
+            if(timer < 0)
+            {
+                dStat++; //add one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                addFrame();//add one to the detection UI frames
+            }
+        } else if(fieldOfView.playerinFOV == false)
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            if(timer < 0)
+            {
+                dStat--;//minus one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                subtractFrame();//minus one to the detection UI frames
+            }
+        }
+    }
+
+    void updateDetection() {//update detection function
+        if (dStat > maxD){//if the status is greater than max, 
+            dStat = maxD;//set status to max
+            Game_Over = true;//set global game over bool to true
+            
+            //if the player gets caught, plays the death audio and prevents it from looping
+            if (!hasPlayedAudio) {
+                audioManager.PlaySFX(audioManager.death);
+                hasPlayedAudio = true;
+
+        }
+        else if (Game_Over)
+            {
+                Application.Quit();
+            }
+        else if (dStat < minD){//if status is less than 0, set it to 0
+            dStat = minD;
+        }
+    }
+    
+    }
+
 }
