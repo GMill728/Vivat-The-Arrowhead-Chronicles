@@ -38,6 +38,7 @@ public class Detection : MonoBehaviour
     public Image image_5;
 
     public float timer;
+    public float gameOverTimer;
 
     int dStat = 0;//this is the initial value of detection status
     int maxD = 24;//max detection status
@@ -132,7 +133,6 @@ public class Detection : MonoBehaviour
         if(fieldOfView.playerinFOV) 
         {
             timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
-            Debug.Log(timer);
             if(timer < 0)
             {
                 dStat++; //add one to detection status
@@ -174,7 +174,21 @@ public class Detection : MonoBehaviour
         }
         else if (Game_Over)
         {
-            Application.Quit();
+            
+            //Added by Luke - trigger guard dialogue when player is caught
+            string guardName = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().ActorName;  //retrive actor name
+            string guardDialogueNum = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().interactDialogueNum; // retrieve actor starting dialogue
+            DialogueManager.Instance.linkActorVar = guardName;  //update DialogueManager's temp variables for circumstances requiring these strings
+            DialogueManager.Instance.linkNodeIdVar = guardDialogueNum;
+            DialogueManager.Instance.SpeakToNewActor(guardName, guardDialogueNum); //Begin dialogue
+            
+            gameOverTimer -= Time.deltaTime;
+
+            if(gameOverTimer < 0)
+            {
+                Application.Quit();
+            }
+
         }
         else if (dStat < minD){//if status is less than 0, set it to 0
             dStat = minD;

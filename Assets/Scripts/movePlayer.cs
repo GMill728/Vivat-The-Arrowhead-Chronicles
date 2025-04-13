@@ -1,8 +1,6 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
-using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class playerMovement : MonoBehaviour
 {
@@ -52,7 +50,6 @@ public class playerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Debug.Log(direction.normalized * speed);
         rb.linearVelocity = direction.normalized * speed;
     }
  }
