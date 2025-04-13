@@ -9,6 +9,17 @@ public class playerMovement : MonoBehaviour
     float verticalInput;
 
     Vector3 direction;
+
+    int footstepTimer = 60;
+
+    AudioManager audioManager;
+
+    private void Awake()
+    {
+        //accesses the audio manager
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     private void MyInput()
     {
         //checks for horizontal and vertical inputs
@@ -19,6 +30,17 @@ public class playerMovement : MonoBehaviour
     {
         MyInput(); //checks inputs every update
         MovePlayer(); //moves the player every update
+
+        footstepTimer--;
+
+        //if the timer reaches 0 and the player is moving, play the footstep audio
+        if (footstepTimer == 0) {
+            if (direction.magnitude > 0) {
+                audioManager.PlaySFX(audioManager.footsteps, 0.25f);
+            }
+
+            footstepTimer = 60;
+        }
     }
 
     private void MovePlayer()
