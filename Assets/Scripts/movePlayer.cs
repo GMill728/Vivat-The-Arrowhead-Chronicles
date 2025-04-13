@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using static UnityEditor.Searcher.SearcherWindow.Alignment;
 
 public class playerMovement : MonoBehaviour
 {
@@ -11,8 +12,8 @@ public class playerMovement : MonoBehaviour
     Vector3 direction;
     public Transform orientation;
 
-    float horizontalInput;
-    float verticalInput;
+    float horizontal;
+    float vertical;
 
     int footstepTimer = 60;
 
@@ -27,11 +28,13 @@ public class playerMovement : MonoBehaviour
     private void MyInput()
     {
         //checks for horizontal and vertical inputs
-        horizontalInput = Input.GetAxisRaw("Horizontal");
-        verticalInput = Input.GetAxisRaw("Vertical");
+        horizontal = Input.GetAxisRaw("Horizontal");
+        vertical = Input.GetAxisRaw("Vertical");
+        direction = orientation.forward * vertical + orientation.right * horizontal;
     }
+
     void Start(){
- 	rb = GetComponent<Rigidbody>();
+ 	    rb = GetComponent<Rigidbody>();
 	}
     void Update()
     {
@@ -40,20 +43,13 @@ public class playerMovement : MonoBehaviour
         footstepTimer--;
 
         //if the timer reaches 0 and the player is moving, play the footstep audio
-        if (footstepTimer == 0) {
-            if (direction.magnitude > 0) {
-                audioManager.PlaySFX(audioManager.footsteps, 0.25f);
-            }
-        }
-    void MyInput()
-    {
-        float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        direction = orientation.forward * vertical + orientation.right * horizontal;
-
-        footstepTimer = 60;    
+        if (footstepTimer <= 0 && direction.magnitude > 0)
+        {
+            audioManager.PlaySFX(audioManager.footsteps, 0.25f);
+            footstepTimer = 60;
         }
     }
+
     private void FixedUpdate()
     {
         Debug.Log(direction.normalized * speed);
