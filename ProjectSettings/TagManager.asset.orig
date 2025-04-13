@@ -9,10 +9,13 @@ TagManager:
   - Rebel1
   - Rebel2
   - player
+<<<<<<< HEAD
+  - Audio
+=======
   - RiserNine
   - DialogueController
   - Guard
-  - Audio
+>>>>>>> Luke-Branch
   layers:
   - Default
   - TransparentFX
