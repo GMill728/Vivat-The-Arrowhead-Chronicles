@@ -19,10 +19,12 @@ public class Detection : MonoBehaviour
 
     FieldOfView fieldOfView;
     [SerializeField] GameObject enemyObject;
+    AudioManager audioManager;
 
     void Awake()
     {
         fieldOfView = enemyObject.GetComponent<FieldOfView>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
     }
 
 
@@ -43,12 +45,6 @@ public class Detection : MonoBehaviour
 
     bool hasPlayedAudio = false;
 
-    AudioManager audioManager;
-
-    private void pAwake() {
-        //accesses the audio manager
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
-    }
     void PlusAlpha(Image b){//function to add alpha (transparency to input image)
         var tempColor = b.color;//creates a temp var of all color channels (you can't just edit em directly)
          tempColor.a += 0.25f;//adds .25 (out of max 1) to alpha since we are doing 4 frames per image
@@ -167,22 +163,22 @@ public class Detection : MonoBehaviour
         if (dStat > maxD){//if the status is greater than max, 
             dStat = maxD;//set status to max
             Game_Over = true;//set global game over bool to true
-            
-            //if the player gets caught, plays the death audio and prevents it from looping
-            if (!hasPlayedAudio) {
+
+            //plays the death audio and prevents it from looping
+            if (!hasPlayedAudio)
+            {
                 audioManager.PlaySFX(audioManager.death);
                 hasPlayedAudio = true;
-
+            }
+            
         }
         else if (Game_Over)
-            {
-                Application.Quit();
-            }
+        {
+            Application.Quit();
+        }
         else if (dStat < minD){//if status is less than 0, set it to 0
             dStat = minD;
         }
-    }
-    
     }
 
 }
