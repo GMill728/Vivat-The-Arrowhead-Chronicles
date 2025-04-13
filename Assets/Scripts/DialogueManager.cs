@@ -2,7 +2,7 @@
 Script handles all dialogue manipulation between possible various actors and their dialogue nodes.
 Written by: Luke
 On: 3/28/25
-Last Modified: 4/6/25
+Last Modified: 4/12/25
 */
 
 // Created by Luke using source code from Youtube 
@@ -43,6 +43,8 @@ public class DialogueManager : MonoBehaviour
     [HideInInspector] public string currentDialogueText;//L - Represents the most updated dialogue text to be applied when called
     [HideInInspector] public string responseIdVar;
     [HideInInspector] public string responseActorVar;
+
+    [HideInInspector] public string activeId;
  
 
 
@@ -128,6 +130,9 @@ public class DialogueManager : MonoBehaviour
 
         // Set dialogue title and body text
         DialogueTitleText.text = actorName;
+
+        activeId = node.id;
+
         //L - Added check for when instance has not been set
         if (node.dialogueText != null)
         {
@@ -151,7 +156,7 @@ public class DialogueManager : MonoBehaviour
             //L - allows "Spacebar" to skip dialogue if it doesn't link to another or requires player response
             //      Another way to understand this: This essentially says the current node is just a text node with no input
             skippable = true;
-            ////Debug.Log($"skippable 1");
+            //Debug.Log($"skippable 1");
         }
         else if (!node.hasNewActorLink && node.hasResponses() && node.responses[0].responseText != "" && node.responses[0] != null)
         {
@@ -166,7 +171,7 @@ public class DialogueManager : MonoBehaviour
             responseIdVar = node.responses[0].responseId;
             responseActorVar = node.responses[0].linkActor;
             emptyResponse = true;
-            //Debug.Log($"sus");
+            //Debug.Log($"empty true 1");
         }        
         else
         {
@@ -195,6 +200,8 @@ public class DialogueManager : MonoBehaviour
 
         if (node.hasResponses())
         {
+            skippable = false;
+            //Debug.Log("UpdateDialogue(): skippable off");
         // Create new response buttons for the current node's responses
             foreach (DialogueResponse response in node.responses)
             {
@@ -210,6 +217,7 @@ public class DialogueManager : MonoBehaviour
                     responseIdVar = node.responses[0].responseId;
                     responseActorVar = node.responses[0].linkActor;
                     emptyResponse = true;
+                    //Debug.Log($"empty true 2");
                 }
                 else //linkable else if statement unnecessary since UpdateDialogue is never passed to a node with link and responses
                 {
@@ -221,7 +229,7 @@ public class DialogueManager : MonoBehaviour
         else //linkable else if statement unnecessary since UpdateDialogue is never passed to a node with link and responses
         {
             skippable = true;
-            //Debug.Log($"skippable 2");
+            //Debug.Log($"skippable 3");
         }
 
         //L - THE FOLLOWING IF STATEMENTS ARE ALMOST ENTIRELY REDUNDANT DUE TO THEM BEING SIMILAR TO StartDialogue()'s IF STATEMENTS.
@@ -238,14 +246,14 @@ public class DialogueManager : MonoBehaviour
             linkNodeIdVar = node.linkNodeId;    //L - The node applied to function has its string variable id stored to search by id later
             linkable = true;        //L - allows "Spacebar" to call a new dialogue node, even if its from another actor
         }
-        else if (!node.hasNewActorLink && node.hasResponses())
+        else if (!node.hasNewActorLink && node.hasResponses() && node.responses[0].responseText == "")
         {
             //Debug.Log("array 5");
             //go to response after pressing space
             responseIdVar = node.responses[0].responseId;
             responseActorVar = node.responses[0].linkActor;
             emptyResponse = true;
-            //Debug.Log($"empty response");
+            //Debug.Log($"empty true 3");
         }        
         else if (node.hasNewActorLink && !node.hasResponses())
         {
@@ -258,12 +266,14 @@ public class DialogueManager : MonoBehaviour
             //L - allows "Spacebar" to skip dialogue if it doesn't link to another or requires player response
             //      Another way to understand this: This essentially says the current node is just a text node with no input
             skippable = true;
-            //Debug.Log($"skippable 3");
+            //Debug.Log($"skippable 4");
         }
         else
         {
             ////Debug.Log($"UpdateDialogue: No Nodes applied");
         }//END IF
+
+        activeId = node.id;
     }//END UpdateDialogue()
 
 
@@ -318,6 +328,10 @@ public class DialogueManager : MonoBehaviour
     {
         //L - Main container to dialogue activated. To view initial value see DialogueManager in inspector
         DialogueParent.SetActive(true);
+
+        //L - Fixes weird case where dialogue with response is skipped because previous actor dialogue had no 
+        //      responses and failed to update variable when setting parent inactive.
+        skippable = false;
     }//END ShowDialogue()
  
     /// <summary>
@@ -336,10 +350,10 @@ public class DialogueManager : MonoBehaviour
     /// <returns>DialogueNode</returns>
      private DialogueNode GetDialogueNodeById(string id)
     {
-        if (currentDialogue == null)
-        {
+        //if (currentDialogue == null)
+        //{
             ////Debug.Log($"currentDialogue is null");
-        }
+        //}
         // Assuming all nodes are stored in the current dialogue
         return currentDialogue.dialogueNodes.FirstOrDefault(node => node.id == id);
     }//END GetDialogueNodeById()

@@ -53,7 +53,7 @@ MonoBehaviour:
     - responseText: 
       responseId: 4
       hasNewActorLink: 0
-      linkActor: 
+      linkActor: Rebel2
       linkNodeId: 
   - id: 4
     dialogueText: For a free Vivat.

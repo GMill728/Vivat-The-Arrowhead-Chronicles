@@ -46,7 +46,7 @@ MonoBehaviour:
       linkActor: 
       linkNodeId: 
     - responseText: What's an arrowhead?
-      responseId: 5
+      responseId: 9
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
@@ -90,7 +90,7 @@ MonoBehaviour:
     linkNodeId: 
     responses:
     - responseText: His head?
-      responseId: 11
+      responseId: 11a
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
@@ -102,7 +102,7 @@ MonoBehaviour:
     linkNodeId: 
     responses:
     - responseText: Him?
-      responseId: 11
+      responseId: 11a
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
@@ -186,37 +186,27 @@ MonoBehaviour:
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
-  - id: 11
-    dialogueText: "Hmmm\u2026 months ago now, before the war started, there were
-      whispers throughout the kingdom of one man who wanted to rally the people against
-      the Dominus Nihili. No one\u2019s sure who he was. But, he gathered enough
-      people for a small army at the central fountain in the 7th district. He spoke
-      to them. He spoke of freedom, of fighting back against Nihili, those nobles
-      who do nothing but splunder the spoils of this land. The crowd became increasingly
-      more untamed as he spoke. A spark was lit. And to extinguish it, a single arrow
-      was put through the skull of that man. It might have smoldered the flame for
-      a bit, but it was not long before it was ablaze. "
+  - id: 11b
+    dialogueText: 'He spoke to them. He spoke of freedom, of fighting back against
+      Nihili, those nobles who do nothing but splunder the spoils of this land. The
+      crowd became increasingly more untamed as he spoke. A spark was lit. And to
+      extinguish it, a single arrow was put through the skull of that man. It might
+      have smoldered the flame for a bit, but it was not long before it was ablaze. '
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
     responses:
     - responseText: Why are you here?
-      responseId: 12
+      responseId: 12a
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
-  - id: 12
-    dialogueText: "We all have our roles to play. After the assassination of our
-      first spark, a few of us had tried to topple some of the citadels with raids.
-      They were unsuccessful at first, until we had one of the guards inside one
-      of the citadels join our side. He knew the patrols routes, number of guards,
-      and the most opportune time to go. It was our first successful raid. We worked
-      to get more of our men in the guards\u2019 ranks so we could better find the
-      weakest points to strike. There are more like me scattered at different stations
-      throughout the kingdom. This is my assignment; to learn the layout and patrol
-      routes throughout this dungeon to find the best way to break my fellow arrowheads
-      out. But I have not yet figured out the best way to conduct a mass escape.
-      Perhaps you could do me a favor?"
+  - id: 12b
+    dialogueText: There are more like me scattered at different stations throughout
+      the kingdom. This is my assignment; to learn the layout and patrol routes throughout
+      this dungeon to find the best way to break my fellow arrowheads out. But I
+      have not yet figured out the best way to conduct a mass escape. Perhaps you
+      could do me a favor?
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -227,8 +217,8 @@ MonoBehaviour:
       linkActor: 
       linkNodeId: 
   - id: 13
-    dialogueText: '13)Yes. I know you are not one of us, not yet at least, but I
-      could help find your way out if you deliver a message for me. '
+    dialogueText: 'Yes. I know you are not one of us, not yet at least, but I could
+      help find your way out if you deliver a message for me. '
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -251,7 +241,11 @@ MonoBehaviour:
     linkNodeId: 
     responses: []
   - id: 15
-    dialogueText: 
+    dialogueText: "It\u2019s for my fellow arrowheads on the outside. Let them know
+      that I still live and remain undiscovered. Here, take my arrowhead; they will
+      be suspicious otherwise. Tell them Riser Nine sent you. The nearest hideout
+      is in district 12, in an underground bar down the alley to the right of the
+      blacksmith. Now, there is a broken window along the easternmost wall. Go carefully."
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
@@ -280,3 +274,31 @@ MonoBehaviour:
     linkActor: 
     linkNodeId: 
     responses: []
+  - id: 11a
+    dialogueText: "Hmmm\u2026 months ago now, before the war started, there were
+      whispers throughout the kingdom of one man who wanted to rally the people against
+      the Dominus Nihili. No one\u2019s sure who he was. But, he gathered enough
+      people for a small army at the central fountain in the 7th district. "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 11b
+      hasNewActorLink: 0
+      linkActor: RiserNine
+      linkNodeId: 
+  - id: 12a
+    dialogueText: "Hmmm\u2026 months ago now, before the war started, there were
+      whispers throughout the kingdom of one man who wanted to rally the people against
+      the Dominus Nihili. No one\u2019s sure who he was. But, he gathered enough
+      people for a small army at the central fountain in the 7th district. "
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses:
+    - responseText: 
+      responseId: 12b
+      hasNewActorLink: 0
+      linkActor: RiserNine
+      linkNodeId: 
