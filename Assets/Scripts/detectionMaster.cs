@@ -16,6 +16,18 @@ using JetBrains.Annotations;
 
 public class Detection : MonoBehaviour
 {
+
+    FieldOfView fieldOfView;
+    [SerializeField] GameObject enemyObject;
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        fieldOfView = enemyObject.GetComponent<FieldOfView>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
+
     public static bool Game_Over = false;
     //below are where to put detection images
     public Image image_0;
@@ -25,53 +37,15 @@ public class Detection : MonoBehaviour
     public Image image_4;
     public Image image_5;
 
+    public float timer;
+    public float gameOverTimer;
+
     int dStat = 0;//this is the initial value of detection status
     int maxD = 24;//max detection status
     int minD = 0;//minimum detection status
-   
-    void Start()
-    {
-          updateDetection();//on start check detection once (used for function declaration)
-    }
-    void Update() 
-    {
-        int dTemp = dStat;
-        
-        if (Input.GetKeyDown(KeyCode.Equals))//check if plus was pressed (equals key)
-        {
-            dStat++; //add one to detection status
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                addFrame();//add one to the detection UI frames
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            dStat--;//minus one to detection status
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                subtractFrame();//minus one to the detection UI frames
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
-        {
-            dStat = 0;//zero out detection status
-            updateDetection();//update detection
-            zeroFrame();//zero out UI frame
-        }
 
-    }
-    void updateDetection() {//update detection function
-        if (dStat > maxD){//if the status is greater than max, 
-            dStat = maxD;//set status to max
-            Game_Over = true;//set global game over bool to true
-        }
-        else if (dStat < minD){//if status is less than 0, set it to 0
-            dStat = minD;
-        }
-    }
+    bool hasPlayedAudio = false;
+
     void PlusAlpha(Image b){//function to add alpha (transparency to input image)
         var tempColor = b.color;//creates a temp var of all color channels (you can't just edit em directly)
          tempColor.a += 0.25f;//adds .25 (out of max 1) to alpha since we are doing 4 frames per image
@@ -139,5 +113,86 @@ public class Detection : MonoBehaviour
         ZeroAlpha(image_3);
         ZeroAlpha(image_4);
         ZeroAlpha(image_5);
+        }
+
+    void Start()
+    {
+          updateDetection();//on start check detection once (used for function declaration)
     }
+    void Update() 
+    {
+        int dTemp = dStat;
+        
+        if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
+        {
+            dStat = 0;//zero out detection status
+            updateDetection();//update detection
+            zeroFrame();//zero out UI frame
+        }
+
+        if(fieldOfView.playerinFOV) 
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            if(timer < 0)
+            {
+                dStat++; //add one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                addFrame();//add one to the detection UI frames
+            }
+        } else if(fieldOfView.playerinFOV == false)
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            if(timer < 0)
+            {
+                dStat--;//minus one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                subtractFrame();//minus one to the detection UI frames
+            }
+        }
+    }
+
+    void updateDetection() {//update detection function
+        if (dStat > maxD){//if the status is greater than max, 
+            dStat = maxD;//set status to max
+            Game_Over = true;//set global game over bool to true
+
+            //plays the death audio and prevents it from looping
+            if (!hasPlayedAudio)
+            {
+                audioManager.PlaySFX(audioManager.death);
+                hasPlayedAudio = true;
+            }
+            
+        }
+        else if (Game_Over)
+        {
+            
+            //Added by Luke - trigger guard dialogue when player is caught
+            string guardName = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().ActorName;  //retrive actor name
+            string guardDialogueNum = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().interactDialogueNum; // retrieve actor starting dialogue
+            DialogueManager.Instance.linkActorVar = guardName;  //update DialogueManager's temp variables for circumstances requiring these strings
+            DialogueManager.Instance.linkNodeIdVar = guardDialogueNum;
+            DialogueManager.Instance.SpeakToNewActor(guardName, guardDialogueNum); //Begin dialogue
+            
+            gameOverTimer -= Time.deltaTime;
+
+            if(gameOverTimer < 0)
+            {
+                Application.Quit();
+            }
+
+        }
+        else if (dStat < minD){//if status is less than 0, set it to 0
+            dStat = minD;
+        }
+    }
+
 }

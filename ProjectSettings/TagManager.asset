@@ -12,6 +12,7 @@ TagManager:
   - RiserNine
   - DialogueController
   - Guard
+  - Audio
   layers:
   - Default
   - TransparentFX
