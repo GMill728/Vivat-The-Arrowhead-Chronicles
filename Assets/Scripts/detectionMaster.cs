@@ -16,6 +16,15 @@ using JetBrains.Annotations;
 
 public class Detection : MonoBehaviour
 {
+
+    FieldOfView fieldOfView;
+    [SerializeField] GameObject enemyObject;
+
+    void Awake()
+    {
+        fieldOfView = enemyObject.GetComponent<FieldOfView>();
+    }
+
     public static bool Game_Over = false;
     //below are where to put detection images
     public Image image_0;
@@ -24,6 +33,8 @@ public class Detection : MonoBehaviour
     public Image image_3;
     public Image image_4;
     public Image image_5;
+
+    public float timer;
 
     int dStat = 0;//this is the initial value of detection status
     int maxD = 24;//max detection status
@@ -37,36 +48,51 @@ public class Detection : MonoBehaviour
     {
         int dTemp = dStat;
         
-        if (Input.GetKeyDown(KeyCode.Equals))//check if plus was pressed (equals key)
-        {
-            dStat++; //add one to detection status
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                addFrame();//add one to the detection UI frames
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Minus))
-        {
-            dStat--;//minus one to detection status
-            updateDetection();//run update detection script
-            if (dTemp !=dStat)
-            {
-                subtractFrame();//minus one to the detection UI frames
-            }
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
+        if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
         {
             dStat = 0;//zero out detection status
             updateDetection();//update detection
             zeroFrame();//zero out UI frame
         }
 
+        if(fieldOfView.playerinFOV) 
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            Debug.Log(timer);
+            if(timer < 0)
+            {
+                dStat++; //add one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                addFrame();//add one to the detection UI frames
+            }
+        } else if(fieldOfView.playerinFOV == false)
+        {
+            timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            if(timer < 0)
+            {
+                dStat--;//minus one to detection status
+                timer = 0.1f; //reset timer
+            }
+            updateDetection();//run update detection script
+            if (dTemp !=dStat)
+            {
+                subtractFrame();//minus one to the detection UI frames
+            }
+        }
     }
     void updateDetection() {//update detection function
         if (dStat > maxD){//if the status is greater than max, 
             dStat = maxD;//set status to max
             Game_Over = true;//set global game over bool to true
+
+            if (Game_Over)
+            {
+                Application.Quit();
+            }
         }
         else if (dStat < minD){//if status is less than 0, set it to 0
             dStat = minD;
