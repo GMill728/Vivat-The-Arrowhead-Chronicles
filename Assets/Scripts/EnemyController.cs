@@ -44,8 +44,15 @@ public class EnemyController : MonoBehaviour
             }
         } else 
         {
-            Debug.Log("Player detected! Stopping movement.");
+            //Debug.Log("Player detected! Stopping movement.");
             agent.isStopped = true;
+
+            //Added by Luke - trigger guard dialogue when player is caught
+            string guardName = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().ActorName;  //retrive actor name
+            string guardDialogueNum = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().interactDialogueNum; // retrieve actor starting dialogue
+            DialogueManager.Instance.linkActorVar = guardName;  //update DialogueManager's temp variables for circumstances requiring these strings
+            DialogueManager.Instance.linkNodeIdVar = guardDialogueNum;
+            DialogueManager.Instance.SpeakToNewActor(guardName, guardDialogueNum); //Begin dialogue
         }
     }
 }
