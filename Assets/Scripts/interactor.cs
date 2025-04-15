@@ -3,7 +3,7 @@ Script handles recognizing other objects containing scripts associated with itse
 call the IInteractable script Interact() that stems from here.
 Written by: Luke
 On: 4/6/25
-Last Modified: 4/12/25
+Last Modified: 4/6/25
 */
 
 // Created by Luke using source code from Youtube 
@@ -35,37 +35,13 @@ public class Interactor : MonoBehaviour
             Ray r = new Ray(InteractorSource.position, InteractorSource.forward); //Ray beginning from designated source to designated distance
             if (Physics.Raycast(r, out RaycastHit hitInfo, InteractRange))  //Makes contact
             {
-                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) //Retrieves IInteractable object
+                if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) //Retrieves IInteractable object's Interact()
                 {
-                    //L - Makes sure dialogue isn't up by searching by tag for the controller
-                    if(!GameObject.Find("DialogueController").GetComponent<DialogueManager>().IsDialogueActive())
-                    {
-                        interactObj.Interact(); //Calls the object's function
-                    }
+                    interactObj.Interact(); //Calls the object's function
                 }//END IF
             }//END IF
         }//END IF
     }//END Update()
-
-    public string GetInteractInfo()
-    {
-        Ray interactInfoRay = new Ray(InteractorSource.position, InteractorSource.forward); //Ray beginning from designated source to designated distance
-        if (Physics.Raycast(interactInfoRay, out RaycastHit hitInfo, InteractRange))  //Makes contact
-        {
-            if (hitInfo.collider.gameObject.TryGetComponent(out IInteractable interactObj)) //Retrieves IInteractable object
-                {
-                    return interactObj.InteractableInfo(); //Calls the object's function
-                }
-                else
-                {
-                    return null; //Object is not interactable
-                }//END IF
-        }
-        else
-        {
-            return null; //Object not detected
-        }//END IF
-    }
 }//END class Interactor
 
 //Enables other "IInteractable" scripts to trigger actions within an Interact() function that
@@ -73,6 +49,4 @@ public class Interactor : MonoBehaviour
 interface IInteractable
 {
     public void Interact();
-
-    public string InteractableInfo();
 }

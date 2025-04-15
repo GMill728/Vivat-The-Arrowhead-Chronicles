@@ -9,9 +9,6 @@ TagManager:
   - Rebel1
   - Rebel2
   - player
-  - RiserNine
-  - DialogueController
-  - Guard
   layers:
   - Default
   - TransparentFX

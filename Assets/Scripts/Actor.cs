@@ -24,7 +24,7 @@ public class NpcDialogueActor : MonoBehaviour, IInteractable        //L - Charac
 
     public string interactDialogueNum; //L - used to determine which dialogue node to start with when interacted.
                                         // needs to be string for cases like 1a and 1b.
-                                        // Can be changed by other script (DialogueEventTracker) in order to change the dialogue that appears
+                                        // Can be changed by other script in order to change the dialogue that appears
                                         // when various events occur in game.
 
     /// <summary>
@@ -43,10 +43,5 @@ public class NpcDialogueActor : MonoBehaviour, IInteractable        //L - Charac
         DialogueManager.Instance.linkActorVar = ActorName;  //update DialogueManager's temp variables for circumstances requiring these strings
         DialogueManager.Instance.linkNodeIdVar = interactDialogueNum;
         DialogueManager.Instance.SpeakToNewActor(ActorName, interactDialogueNum); //Begin dialogue
-    }
-
-    public string InteractableInfo()
-    {
-        return ActorName;
     }
 }//END class NpcDialogueActor
