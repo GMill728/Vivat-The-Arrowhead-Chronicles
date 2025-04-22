@@ -21,12 +21,38 @@ public class Detection : MonoBehaviour
     [SerializeField] GameObject enemyObject;
     AudioManager audioManager;
 
-    void Awake()
+    public GameObject[] allObjects;
+
+    public GameObject nearestEnemy;
+
+    float distance; 
+
+    float nearestDistance;
+
+    void getNearestEnemy()
     {
-        fieldOfView = enemyObject.GetComponent<FieldOfView>();
-        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        allObjects = GameObject.FindGameObjectsWithTag("Enemy");
+
+        for (int i = 0; i < allObjects.Length; i++)
+        {
+            distance = Vector3.Distance(this.transform.position, allObjects[i].transform.position);
+
+            if(distance < nearestDistance)
+            {
+                nearestEnemy = allObjects[i];
+                nearestDistance = distance;
+            }
+        }
+        nearestDistance = Mathf.Infinity;
+
     }
 
+    void Awake()
+    {
+        //fieldOfView = enemyObject.GetComponent<FieldOfView>();
+        fieldOfView = nearestEnemy.GetComponent<FieldOfView>();
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     public static bool Game_Over = false;
     //below are where to put detection images
@@ -118,9 +144,11 @@ public class Detection : MonoBehaviour
     void Start()
     {
           updateDetection();//on start check detection once (used for function declaration)
+          getNearestEnemy();
     }
     void Update() 
     {
+        getNearestEnemy();
         int dTemp = dStat;
         
         if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0
