@@ -149,6 +149,7 @@ public class Detection : MonoBehaviour
     void Update() 
     {
         getNearestEnemy();
+        fieldOfView = nearestEnemy.GetComponent<FieldOfView>();
         int dTemp = dStat;
         
         if (Input.GetKeyDown(KeyCode.Alpha0))//if the user hits 0

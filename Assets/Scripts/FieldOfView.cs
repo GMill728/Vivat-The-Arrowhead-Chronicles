@@ -26,7 +26,6 @@ public class FieldOfView : MonoBehaviour
 
     private IEnumerator FOVRoutine() 
     {
-        float delay = 0.2f;
         WaitForSeconds wait = new WaitForSeconds(0.2f);    
 
         while (true)
