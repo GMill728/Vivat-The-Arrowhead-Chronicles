@@ -126,7 +126,14 @@ public class DialogueManager : MonoBehaviour
         //L - Free cursor and lock player & camera
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = true;
+        try
+        {
+            GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = true;
+        }
+        catch
+        {
+            Debug.Log("no camera or no camera component (StartDialogue)");
+        }
 
         // Set dialogue title and body text
         DialogueTitleText.text = actorName;
@@ -318,7 +325,14 @@ public class DialogueManager : MonoBehaviour
         //L - Re-lock cursor & camera after dialogue disappears
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-        GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = false;
+        try
+        {
+            GameObject.FindWithTag("MainCamera").GetComponent<camera>().frozen = false;
+        }
+        catch
+        {
+            Debug.Log("no camera or no camera component (HideDialogue)");
+        }
     }//END HideDialogue()
  
     /// <summary>

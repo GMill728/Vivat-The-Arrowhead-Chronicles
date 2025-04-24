@@ -13,6 +13,7 @@ TagManager:
   - DialogueController
   - Guard
   - Audio
+  - EpilDialObj
   layers:
   - Default
   - TransparentFX
