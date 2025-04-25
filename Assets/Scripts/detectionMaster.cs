@@ -23,7 +23,7 @@ public class Detection : MonoBehaviour
 
     public GameObject[] allObjects;
 
-    public GameObject nearestEnemy;
+    [SerializeField] GameObject nearestEnemy;
 
     float distance; 
 
