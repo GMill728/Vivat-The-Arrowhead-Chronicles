@@ -62,7 +62,7 @@ public class Detection : MonoBehaviour
     public Image image_3;
     public Image image_4;
     public Image image_5;
-
+    
     public float timer;
     public float gameOverTimer;
 
@@ -87,6 +87,11 @@ public class Detection : MonoBehaviour
          tempColor.a = 0;
          b.color = tempColor;
     }
+      void MaxAlpha(Image b){//maxes alpha of given image inputted
+        var tempColor = b.color;
+         tempColor.a = 1;
+         b.color = tempColor;
+    }
     void addFrame(){//adding frames function description below
     /*
         going 0->23 (24 frames), every 4 frames is a new image with the same operations.
@@ -97,36 +102,49 @@ public class Detection : MonoBehaviour
          PlusAlpha(image_0);
         }
         else if (dStat <= 7){
+        MaxAlpha(image_0);
         PlusAlpha(image_1);
         }
         else if (dStat <= 11){
+        MaxAlpha(image_1);
         PlusAlpha(image_2);
         }
         else if (dStat <= 15){
+        MaxAlpha(image_2);
         PlusAlpha(image_3);
         }
         else if (dStat <= 19){
-         PlusAlpha(image_4);
+        MaxAlpha(image_3);
+        PlusAlpha(image_4);
         }
         else if (dStat <= 23){
-          PlusAlpha(image_5);
+        MaxAlpha(image_4);
+        PlusAlpha(image_5);
         }
     }
     void subtractFrame(){//this does the same as above but subtraction
-        if (dStat <= 3){
+        if (dStat == 0){
+            zeroFrame();
+        }
+        else if (dStat <= 3){
          MinusAlpha(image_0);
+         ZeroAlpha(image_1);
         }
         else if (dStat <= 7){
         MinusAlpha(image_1);
+        ZeroAlpha(image_2);
         }
         else if (dStat <= 11){
         MinusAlpha(image_2);
+        ZeroAlpha(image_3);
         }
         else if (dStat <= 15){
         MinusAlpha(image_3);
+        ZeroAlpha(image_4);
         }
         else if (dStat <= 19){
          MinusAlpha(image_4);
+         ZeroAlpha(image_5);
         }
         else if (dStat <= 23){
           MinusAlpha(image_5);
