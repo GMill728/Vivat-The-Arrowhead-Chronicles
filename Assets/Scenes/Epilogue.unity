@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: currentDialogue
       value: 
       objectReference: {fileID: 11400000, guid: 3cb6c88adce628c4880c80d100ad3890, type: 2}
+    - target: {fileID: 1481333239797604247, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
+      propertyPath: dialogueController
+      value: 
+      objectReference: {fileID: 246328639}
     - target: {fileID: 4745761972966876366, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
       propertyPath: m_SizeDelta.y
       value: 71.5104
@@ -240,6 +244,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
+--- !u!114 &246328639 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1413331855537211285, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
+  m_PrefabInstance: {fileID: 246328638}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b734b3d1c2881f64381dae3edc6610e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &346047007
 GameObject:
   m_ObjectHideFlags: 0

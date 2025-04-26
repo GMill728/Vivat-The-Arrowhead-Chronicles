@@ -135,6 +135,17 @@ public class DialogueManager : MonoBehaviour
             Debug.Log("no camera or no camera component (StartDialogue)");
         }
 
+        try
+        {
+            GameObject.FindWithTag("player").GetComponent<playerMovement>().frozen = true;
+            //Debug.Log("FREEZE");
+        }
+        catch
+        {
+            Debug.Log("no PlayerObj or no PlayerObj component (StartDialogue)");
+        }
+        
+
         // Set dialogue title and body text
         DialogueTitleText.text = actorName;
 
@@ -333,6 +344,17 @@ public class DialogueManager : MonoBehaviour
         {
             Debug.Log("no camera or no camera component (HideDialogue)");
         }
+
+        try
+        {
+            GameObject.FindWithTag("player").GetComponent<playerMovement>().frozen = false;
+            //Debug.Log("THAW");
+        }
+        catch
+        {
+            Debug.Log("no PlayerObj or no PlayerObj component (HideDialogue)");
+        }
+
     }//END HideDialogue()
  
     /// <summary>
