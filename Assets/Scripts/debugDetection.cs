@@ -3,7 +3,7 @@ This script is to output the current detection status for development and debug
 Will become depricated before Alpha
 Written by: Gavv
 On: 3/28/25
-*/
+
 using UnityEngine;
 using TMPro;
 using System.Collections;
@@ -11,7 +11,7 @@ using System.Collections;
 public class debugDetection : MonoBehaviour
 {
     /*creates a field able to be edited in unity editor
-    but is not accessible by other classes*/
+    but is not accessible by other classes
     [SerializeField] TextMeshProUGUI myObj;
                                         
     int dStat = 0;//detection status variable init. at 0
@@ -61,3 +61,4 @@ public class debugDetection : MonoBehaviour
         }
     }
 }
+*/
