@@ -183,7 +183,7 @@ public class Detection : MonoBehaviour
             if(timer < 0)
             {
                 dStat++; //add one to detection status
-                timer = 0.5f; //reset timer
+                timer = 0.2f; //reset timer
             }
             updateDetection();//run update detection script
             if (dTemp !=dStat)
