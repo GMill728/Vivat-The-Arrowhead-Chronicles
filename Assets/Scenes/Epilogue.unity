@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: dialogueController
       value: 
       objectReference: {fileID: 246328639}
+    - target: {fileID: 1499410861660568010, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1499410861660568010, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 25.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4745761972966876366, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
       propertyPath: m_SizeDelta.y
       value: 71.5104
@@ -240,7 +248,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 4438314458039083580, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c45ed5980e2c9244c9f2c397d49a84ae, type: 3}
@@ -531,6 +540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19ff6901d914074798b637936d03efd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeDelay: 20
 --- !u!1 &2074667909
 GameObject:
   m_ObjectHideFlags: 0

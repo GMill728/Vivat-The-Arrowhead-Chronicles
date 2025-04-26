@@ -6,6 +6,8 @@ public class DialogueEventTracker : MonoBehaviour
     private bool R5 = false;
     private bool R6 = false;
 
+    public static bool optionB = false;
+
 
     private void Update()
     {
@@ -37,5 +39,7 @@ public class DialogueEventTracker : MonoBehaviour
         //change starting dialogue
         GameObject.FindWithTag("RiserNine").GetComponent<NpcDialogueActor>().interactDialogueNum = "17";
         Debug.Log("R6unlocked");
+
+        optionB = true;
     }
 }

@@ -14,40 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueNodes:
   - id: 1
-    dialogueText: "You return to the small shack that you call your home, the land
-      around is desolate and your colleagues return from a long day in the mines. 
-      They have raw rings around their ankles where their shackles once were and
-      they look more tired than they ever have.  One man collapses as he tries to
-      open his door.  You rush over and attempt to help but he is already dead. 
-      You wonder if this was the right decision, if this wasn\u2019t your problem
-      then why wasn\u2019t it anyone else\u2019s?  Is it too late to change your
-      mind?"
-    hasNewActorLink: 0
-    linkActor: 
-    linkNodeId: 
-    responses:
-    - responseText: 
-      responseId: 2
-      hasNewActorLink: 0
-      linkActor: EpilDialObj
-      linkNodeId: 
-  - id: 2
     dialogueText: What do you do now?
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
     responses:
     - responseText: "Head home. The cause isn\u2019t worth the risk."
-      responseId: 3
+      responseId: 2
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
     - responseText: Deliver the message. For a Free Vivat!
-      responseId: 4
+      responseId: 3
       hasNewActorLink: 0
       linkActor: 
       linkNodeId: 
-  - id: 3
+  - id: 2
     dialogueText: "You discard the arrow head, not wanting to risk being caught with
       a rebel symbol, and return to the small shack that you call your home, the
       land around is desolate and your colleagues return from a long day in the mines. 
@@ -61,7 +43,7 @@ MonoBehaviour:
     linkActor: 
     linkNodeId: 
     responses: []
-  - id: 4
+  - id: 3
     dialogueText: "You locate the rebel base and enter, some of the more armed commoners
       confront you before you can get far and offer a careful welcome. Seeing their
       guarded expressions, you bring out  the arrow head as you were instructed and
@@ -69,6 +51,19 @@ MonoBehaviour:
       like yourself now turned towards you with more hope than you\u2019ve ever seen
       before in their eyes, as one of them questions you with disbelief, \u201CYou\u2019ve
       escaped the dungeon?\u201D"
+    hasNewActorLink: 0
+    linkActor: 
+    linkNodeId: 
+    responses: []
+  - id: 4
+    dialogueText: "You return to the small shack that you call your home, the land
+      around is desolate and your colleagues return from a long day in the mines. 
+      They have raw rings around their ankles where their shackles once were and
+      they look more tired than they ever have.  One man collapses as he tries to
+      open his door.  You rush over and attempt to help but he is already dead. 
+      You wonder if this was the right decision, if this wasn\u2019t your problem
+      then why wasn\u2019t it anyone else\u2019s?  Is it too late to change your
+      mind?"
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 
