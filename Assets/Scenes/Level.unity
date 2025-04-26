@@ -3113,6 +3113,7 @@ MonoBehaviour:
   enemyObject: {fileID: 486904391}
   allObjects: []
   nearestEnemy: {fileID: 486904391}
+  player: {fileID: 1327811189}
   image_0: {fileID: 2010753826}
   image_1: {fileID: 44165562}
   image_2: {fileID: 2056141096}

@@ -25,6 +25,10 @@ public class Detection : MonoBehaviour
 
     [SerializeField] GameObject nearestEnemy;
 
+    public GameObject player;
+
+    Rigidbody rb;
+
     float distance; 
 
     float nearestDistance;
@@ -52,6 +56,7 @@ public class Detection : MonoBehaviour
         //fieldOfView = enemyObject.GetComponent<FieldOfView>();
         fieldOfView = nearestEnemy.GetComponent<FieldOfView>();
         audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+        rb = player.GetComponent<Rigidbody>();
     }
 
     public static bool Game_Over = false;
@@ -207,8 +212,8 @@ public class Detection : MonoBehaviour
     }
 
     void updateDetection() {//update detection function
-        if (dStat > maxD){//if the status is greater than max, 
-            dStat = maxD;//set status to max
+        if (dStat == 19){//if the status is greater than max, 
+            //dStat = maxD;//set status to max
             Game_Over = true;//set global game over bool to true
 
             //plays the death audio and prevents it from looping
@@ -221,13 +226,14 @@ public class Detection : MonoBehaviour
         }
         else if (Game_Over)
         {
-            
+            rb.constraints = RigidbodyConstraints.FreezeAll; //Freeze when player is caught
             //Added by Luke - trigger guard dialogue when player is caught
             string guardName = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().ActorName;  //retrive actor name
             string guardDialogueNum = GameObject.FindWithTag("Guard").GetComponent<NpcDialogueActor>().interactDialogueNum; // retrieve actor starting dialogue
             DialogueManager.Instance.linkActorVar = guardName;  //update DialogueManager's temp variables for circumstances requiring these strings
             DialogueManager.Instance.linkNodeIdVar = guardDialogueNum;
             DialogueManager.Instance.SpeakToNewActor(guardName, guardDialogueNum); //Begin dialogue
+
             
             gameOverTimer -= Time.deltaTime;
 

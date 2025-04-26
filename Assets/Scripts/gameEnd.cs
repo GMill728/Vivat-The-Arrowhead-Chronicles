@@ -6,7 +6,6 @@
 //This script uses the OverlapBox that creates an invisible Box Collider that detects multiple collisions with other colliders. The OverlapBox in this case is the same size and position as the GameObject you attach it to (acting as a replacement for the BoxCollider component).
 //This script was taken from: https://docs.unity3d.com/6000.0/Documentation/ScriptReference/Physics.OverlapBox.html
 //And modified by Ethan
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,8 +38,8 @@ public class gameEnd : MonoBehaviour
             SceneManager.LoadScene("Epilogue");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-
-
+            
+            
 
             i++;
         }
