@@ -187,7 +187,7 @@ public class Detection : MonoBehaviour
             if(timer < 0)
             {
                 dStat++; //add one to detection status
-                timer = 0.2f; //reset timer
+                timer = 0.05f; //reset timer
             }
             updateDetection();//run update detection script
             if (dTemp !=dStat)
@@ -218,7 +218,7 @@ public class Detection : MonoBehaviour
             //plays the death audio and prevents it from looping
             if (!hasPlayedAudio)
             {
-                audioManager.PlaySFX(audioManager.death);
+                audioManager.PlaySFX(audioManager.death, 0.5f);
                 hasPlayedAudio = true;
             }
             
