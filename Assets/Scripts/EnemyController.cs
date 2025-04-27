@@ -51,7 +51,6 @@ public class EnemyController : MonoBehaviour
             }
         } else 
         {
-            Debug.Log("im gher");
             agent.isStopped = true;
             animator.SetFloat("Speed", 0);
             
