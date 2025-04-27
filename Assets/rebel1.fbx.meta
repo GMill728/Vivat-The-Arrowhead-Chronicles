@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: c13134e588bb62d4e8c193eb282a8f17
+guid: 62c9cae45f73ead4c988692c3ae1e12a
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rebel1armor1
+    second: {fileID: 2100000, guid: dffb23587db75c546aef71a73ce9c01e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rebel1armor2
+    second: {fileID: 2100000, guid: 72b4f6afe7b45f443a4f83876746c432, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

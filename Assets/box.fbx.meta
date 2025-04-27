@@ -1,9 +1,19 @@
 fileFormatVersion: 2
-guid: 98ff8ce79053cb047b5ff3abd252a7ca
+guid: 55b76b4f4882a554fa6b72c2fbdaa057
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: box
+    second: {fileID: 2100000, guid: 5033bbd8600d3804993b8a4ccfbbe007, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: boxtx
+    second: {fileID: 2800000, guid: 95a51cfcca1269546a4c1ed73b9a7c3c, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
