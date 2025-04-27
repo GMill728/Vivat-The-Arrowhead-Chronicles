@@ -48,14 +48,16 @@ public class playerMovement : MonoBehaviour
             //if the timer reaches 0 and the player is moving, play the footstep audio
             if (footstepTimer <= 0 && direction.magnitude > 0)
             {
-                audioManager.PlaySFX(audioManager.footsteps, 0.25f);
+                audioManager.PlaySFX(audioManager.footsteps, 0.15f);
                 footstepTimer = 60;
             }
         }
         else
         {
+
             //stop movement so player doesn't continue walking while frozen - Luke
             direction = (orientation.forward * vertical + orientation.right * horizontal) * 0;
+
         }
     }
 
