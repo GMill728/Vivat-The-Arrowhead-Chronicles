@@ -18,7 +18,6 @@ public class Detection : MonoBehaviour
 {
 
     FieldOfView fieldOfView;
-    [SerializeField] GameObject enemyObject;
     AudioManager audioManager;
 
     public GameObject[] allObjects;

@@ -56,5 +56,6 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "Vivat-The-Arrowhead-Chronicles.sln"
+    "dotnet.defaultSolution": "Vivat-The-Arrowhead-Chronicles.sln",
+    "FSharp.suggestGitignore": false
 }

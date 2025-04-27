@@ -10,6 +10,10 @@ public class EnemyController : MonoBehaviour
     [SerializeField] GameObject fieldOfViewScript;
     [SerializeField] AudioSource SFX; //custom audio output (needed for each enemy)
 
+    [SerializeField] Animator animator;
+
+    float timer;
+
     void Awake()
     {
         fieldOfView = fieldOfViewScript.GetComponent<FieldOfView>();
@@ -26,11 +30,13 @@ public class EnemyController : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         agent.SetDestination(wayPoints.GetChild(currentWaypoint).position); //Set destination to next waypoint at the start, so our first waypoint is the first child of our waypoints
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         agent.isStopped = false;
+        animator.SetFloat("Speed", 1);
         if(fieldOfView.playerinFOV == false){
             if(agent.remainingDistance <= 0.2f) //If we get to a new waypoint, run below
             {
@@ -41,12 +47,20 @@ public class EnemyController : MonoBehaviour
                     currentWaypoint = 0;
                 }
 
+
+                timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
+            if(timer < 0)
+            {
                 agent.SetDestination(wayPoints.GetChild(currentWaypoint).position); //Set destination to next waypoint
+                animator.SetFloat("Speed", 1);
+                timer = 0.2f; //reset timer
+            }
+                
             }
         } else 
         {
             agent.isStopped = true;
-
+            animator.SetFloat("Speed", 0);
             
         }
 
