@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,8 +12,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] AudioSource SFX; //custom audio output (needed for each enemy)
 
     [SerializeField] Animator animator;
-
-    float timer;
 
     void Awake()
     {
@@ -43,22 +42,16 @@ public class EnemyController : MonoBehaviour
                 currentWaypoint++; //Update to reflect moving to new waypoint
                 if(currentWaypoint >= wayPoints.childCount) //If we have traveled back to all waypoints, reset currentWaypoint to 0
                 {
-                    
                     currentWaypoint = 0;
                 }
-
-
-                timer -= Time.deltaTime; //Use timer to make sure elements aren't added every frame
-            if(timer < 0)
-            {
+                agent.isStopped = false;
                 agent.SetDestination(wayPoints.GetChild(currentWaypoint).position); //Set destination to next waypoint
                 animator.SetFloat("Speed", 1);
-                timer = 0.2f; //reset timer
-            }
-                
+ 
             }
         } else 
         {
+            Debug.Log("im gher");
             agent.isStopped = true;
             animator.SetFloat("Speed", 0);
             
