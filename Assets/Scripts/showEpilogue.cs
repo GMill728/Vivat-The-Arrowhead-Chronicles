@@ -31,6 +31,8 @@ public class showEpilogue : MonoBehaviour
             for(float i = 0; i < timeDelay; i += Time.deltaTime)
             {}
             SceneManager.LoadScene("Main Menu");
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
     }
 }
