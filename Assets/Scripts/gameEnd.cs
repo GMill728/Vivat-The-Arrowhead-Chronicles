@@ -13,6 +13,9 @@ public class gameEnd : MonoBehaviour
 {
     bool m_Started;
     public LayerMask m_LayerMask;
+    public AudioSource audioData;
+    float targetTime = 3.5f;
+    bool hasPlayedSound = false;
 
     void Start()
     {
@@ -23,25 +26,40 @@ public class gameEnd : MonoBehaviour
     void FixedUpdate()
     {
         MyCollisions();
+        targetTime -= Time.deltaTime;//timer to tick down per second from input time
+
     }
 
     void MyCollisions()
     {
         //Use the OverlapBox to detect if there are any other colliders within this box area.
         //Use the GameObject's centre, half the size (as a radius) and rotation. This creates an invisible box around your GameObject.
+        bool playerDetected = false;
+        
         Collider[] hitColliders = Physics.OverlapBox(gameObject.transform.position, transform.localScale / 2, Quaternion.identity, m_LayerMask);
         int i = 0;
         //Check when there is a new collider coming into contact with the box
         while (i < hitColliders.Length)
         {
-            Debug.Log("Hit : " + hitColliders[i].name + i);
+            if(i < hitColliders.Length){
+                playerDetected = true;
+            }
+
+            i++;
+        }
+
+        if(playerDetected == true){ //If player detected, play win sound
+
+            if(!audioData.isPlaying && hasPlayedSound == false){ //Make sure win sound doesn't play over itself, or repeat
+                audioData.Play();
+                hasPlayedSound = true; //Make sure sound ONLY plays ONCE
+            }
+            
+            if(targetTime <= 0.0f){ //Ensure there is enough time for the win sound to play out
             SceneManager.LoadScene("Epilogue");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            
-            
-
-            i++;
+            }
         }
     }
 
