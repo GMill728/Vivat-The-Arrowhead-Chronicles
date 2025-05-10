@@ -13,6 +13,7 @@ using UnityEngine.UI;
 using System;
 using UnityEngine.Rendering;
 using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
 
 public class Detection : MonoBehaviour
 {
@@ -238,7 +239,9 @@ public class Detection : MonoBehaviour
 
             if(gameOverTimer < 0)
             {
-                Application.Quit();
+                SceneManager.LoadScene("Main Menu");
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
             }
 
         }
