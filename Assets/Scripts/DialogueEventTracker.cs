@@ -3,10 +3,17 @@ using UnityEngine;
 public class DialogueEventTracker : MonoBehaviour
 {
     public DialogueManager dialogueController;
-    private bool R5 = false;
-    private bool R6 = false;
+    public bool R5 = false;
+    public bool R6 = false;
 
     public static bool optionB = false;
+
+    private void Start()
+    {
+        R5 = false;    //reset all dialogue variables when created again (new game)
+        R6 = false;
+        optionB = false;
+    }
 
 
     private void Update()

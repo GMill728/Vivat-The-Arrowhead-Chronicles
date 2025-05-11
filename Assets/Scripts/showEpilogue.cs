@@ -28,10 +28,10 @@ public class showEpilogue : MonoBehaviour
     {
         if (!DialogueManager.Instance.IsDialogueActive())
         {
-            for(float i = 0; i < timeDelay; i += Time.deltaTime)
+            for(float i = 0; i < timeDelay; i += Time.deltaTime) // create delay after dialogue closes
             {}
             SceneManager.LoadScene("Main Menu");
-            Cursor.lockState = CursorLockMode.None;
+            Cursor.lockState = CursorLockMode.None; //unlock cursor
             Cursor.visible = true;
         }
     }

@@ -289,10 +289,13 @@ MonoBehaviour:
       linkActor: RiserNine
       linkNodeId: 
   - id: 12a
-    dialogueText: "Hmmm\u2026 months ago now, before the war started, there were
-      whispers throughout the kingdom of one man who wanted to rally the people against
-      the Dominus Nihili. No one\u2019s sure who he was. But, he gathered enough
-      people for a small army at the central fountain in the 7th district. "
+    dialogueText: "We all have our roles to play. After the assassination of our
+      first spark, a few of us had tried to topple some of the citadels with raids.
+      They were unsuccessful at first, until we had one of the guards inside one
+      of the citadels join our side. He knew the patrols routes, number of guards,
+      and the most opportune time to go. It was our first successful raid. We worked
+      to get more of our men in the guards\u2019 ranks so we could better find the
+      weakest points to strike."
     hasNewActorLink: 0
     linkActor: 
     linkNodeId: 

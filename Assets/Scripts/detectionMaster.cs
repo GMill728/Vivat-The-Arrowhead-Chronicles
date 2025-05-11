@@ -166,8 +166,10 @@ public class Detection : MonoBehaviour
 
     void Start()
     {
-          updateDetection();//on start check detection once (used for function declaration)
-          getNearestEnemy();
+        dStat = 0;
+        Game_Over = false;
+        updateDetection();//on start check detection once (used for function declaration)
+        getNearestEnemy();
     }
     void Update() 
     {

@@ -2517,13 +2517,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 17.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5029984647881386602, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -37.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5029984647881386602, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.75
+      objectReference: {fileID: 0}
     - target: {fileID: 5243178634543501411, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_SizeDelta.y
       value: -33
       objectReference: {fileID: 0}
     - target: {fileID: 5243178634543501411, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -28.5
+      value: -37.8
       objectReference: {fileID: 0}
     - target: {fileID: 5411850838485115177, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_Color.b
@@ -2536,6 +2544,26 @@ PrefabInstance:
     - target: {fileID: 5411850838485115177, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931904330949938797, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_fontSize
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931904330949938797, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_margin.w
+      value: 6.8968935
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931904330949938797, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_margin.y
+      value: 7.783452
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931904330949938797, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 5931904330949938797, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_fontSizeMin
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6475328507632879891, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2644,6 +2672,14 @@ PrefabInstance:
     - target: {fileID: 7354427030508688408, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
       propertyPath: m_Name
       value: DialogueUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375813903639400223, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7375813903639400223, guid: 2b356efe2f25ab344a99a868d8b88d20, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -3.75
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
