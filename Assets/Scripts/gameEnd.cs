@@ -13,9 +13,7 @@ public class gameEnd : MonoBehaviour
 {
     bool m_Started;
     public LayerMask m_LayerMask;
-    public AudioSource audioData;
     float targetTime = 3.5f;
-    bool hasPlayedSound = false;
 
     void Start()
     {
@@ -48,18 +46,12 @@ public class gameEnd : MonoBehaviour
             i++;
         }
 
-        if(playerDetected == true){ //If player detected, play win sound
-
-            if(!audioData.isPlaying && hasPlayedSound == false){ //Make sure win sound doesn't play over itself, or repeat
-                audioData.Play();
-                hasPlayedSound = true; //Make sure sound ONLY plays ONCE
-            }
+        if(playerDetected == true){
             
-            if(targetTime <= 0.0f){ //Ensure there is enough time for the win sound to play out
             SceneManager.LoadScene("Epilogue");
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            }
+            
         }
     }
 
