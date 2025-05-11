@@ -18,10 +18,12 @@ public class SimpleTimer: MonoBehaviour {
 
         targetTime -= Time.deltaTime;//timer to tick down per second from input time
 
-        if (targetTime <= 0.0f)//if timer is at 0
+        if (targetTime <= 0.0f || Input.GetKeyDown("space"))//if timer is at 0
         {
            timerEnded();//end timer (alarm in other engines)
         }
+
+
 
     }
 
