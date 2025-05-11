@@ -239,9 +239,10 @@ public class Detection : MonoBehaviour
 
             if(gameOverTimer < 0)
             {
+
                 SceneManager.LoadScene("Main Menu");
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
 
         }
